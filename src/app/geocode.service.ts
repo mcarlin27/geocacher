@@ -8,14 +8,10 @@ export class GeocodeService {
 
   constructor(private http: Http) { }
 
+  results: Observable<any>;
 
-  geocode(fullAddress: string) {
-    let address: any;
-    this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${geoKey}&address=${fullAddress}`).subscribe((data) => {
-      address = data.json().results[0].geometry.location;
-      console.log(data.json().results[0].geometry.location);
-    });
-    return address;
+  geocodeAddress(fullAddress: string) {
+    this.results = this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${geoKey}&address=${fullAddress}`);
+    return this.results;
+    };
   }
-
-}

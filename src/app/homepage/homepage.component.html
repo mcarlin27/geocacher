@@ -17,4 +17,7 @@
   <button (click)="beginReverseGeocoding(latitude.value, longitude.value)">Submit</button>
 </form>
 
-<p>{{latAndLng}}</p>
+<div *ngIf="latAndLng">
+  <h3>Your results</h3>
+  <p>Latitude: {{lat}}, Longitude: {{lng}}</p>
+</div>

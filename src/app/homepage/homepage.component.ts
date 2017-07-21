@@ -19,11 +19,23 @@ export class HomepageComponent implements AfterViewInit {
   }
 
   latAndLng: any = null;
+  lat;
+  lng;
 
   beginGeocoding(locationToGeocode) {
-    this.latAndLng = this.geocodeService.geocode(locationToGeocode);
+    this.geocodeService.geocodeAddress(locationToGeocode).subscribe((data) => {
+      this.latAndLng = data.json().results[0].geometry.location;
     console.log(this.latAndLng);
+    for (var lat in this.latAndLng) {
+      if (this.latAndLng.hasOwnProperty(lat)) {
+        this.lat = this.latAndLng.lat;
+      }
+    }
+    for (var lng in this.latAndLng) {
+      if (this.latAndLng.hasOwnProperty(lng)) {
+        this.lng = this.latAndLng.lng;
+      }
+    }
+    });
   }
-
-
 }

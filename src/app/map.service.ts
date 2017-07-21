@@ -3,8 +3,8 @@ import { geoKey } from './api-keys';
 import { Http, Response } from '@angular/http';
 import {} from '@types/googlemaps';
 
-const getScriptSrc = (callbackName) => {
-  return `https://maps.googleapis.com/maps/api/js?key=` + geoKey + `&callback=${callbackName}`;
+const getScriptSrc = (initMap) => {
+  return `https://maps.googleapis.com/maps/api/js?key=` + geoKey + `&callback=$initMap`;
 }
 
 

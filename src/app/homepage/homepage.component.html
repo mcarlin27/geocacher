@@ -1,1 +1,20 @@
 <div #map></div>
+<p>Having trouble deciphering the location of a geocache? Needing to provide specific coordinates for your geocache's location? Do you have an address you need to geocode? What about a Longitude and Latitude you need to reverse geocode? Let The Great GeocachIng Group help you!<p>
+
+<form id="geocode-form">
+  <label for="location">Enter a full address:</label>
+  <input #location type="text" name="location" placeholder="123 Main Street, Anytown, Oregon">
+  <button (click)="beginGeocoding(location.value)">Submit</button>
+</form>
+
+<h3>OR</h3>
+
+<form id="reverse-geocode-form">
+  <label for="latitude">Enter a latitude:</label>
+  <input #latitude type="text" name="latitude" placeholder="40.714224">
+  <label for="longitude">Enter a longitude:</label>
+  <input #longitude type="text" name="longitude" placeholder="-73.961452">
+  <button (click)="beginReverseGeocoding(latitude.value, longitude.value)">Submit</button>
+</form>
+
+<p>{{latAndLng}}</p>

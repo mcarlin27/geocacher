@@ -51,7 +51,8 @@ You will need the following things properly installed on your computer.
 * Firebase
 * Typescript
 * HTML
-* CSS/SASS
+* Google Maps Geocoding API
+* Sass
 * ES6
 * Node
 

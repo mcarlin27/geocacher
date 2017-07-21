@@ -25,7 +25,7 @@ You will need the following things properly installed on your computer.
 * Navigate into the newly created folder and run:
   * `$ npm install`
 * For this project you'll need API keys for both [Google Maps] (https://developers.google.com/maps/documentation/javascript/) and [Firebase] (https://firebase.google.com/).
-  * You will need to create a file in the 'src' folder of this directory to store your API keys. The file must be called api-keys.ts, and must use the configuration below. Your Firebase API key can be found through 'Go To Console' --> 'Add Project' --> 'Add Firebase to your web app'.
+  * You will need to create a file in the 'src/app' folder of this directory to store your API keys. The file must be called api-keys.ts, and must use the configuration below. Your Firebase API key can be found through 'Go To Console' --> 'Add Project' --> 'Add Firebase to your web app'.
 
   ```
   export const geoKey = "YOUR_GOOGLE_MAPS_KEY_HERE"

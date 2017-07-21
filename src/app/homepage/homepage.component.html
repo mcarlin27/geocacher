@@ -5,6 +5,7 @@
   <label for="location">Enter a full address:</label>
   <input #location type="text" name="location" placeholder="123 Main Street, Anytown, Oregon">
   <button (click)="beginGeocoding(location.value)">Submit</button>
+  <button *ngIf="latAndLng" (click)="saveGeocachedLocation(location.value); location.value='';">Save This Data</button>
 </form>
 
 <h3>OR</h3>
@@ -15,15 +16,14 @@
   <label for="longitude">Enter a longitude:</label>
   <input #longitude type="text" name="longitude" placeholder="-73.961452">
   <button (click)="beginReverseGeocoding(latitude.value, longitude.value)">Submit</button>
+  <button *ngIf="address" (click)="saveReverseGeocachedLocation(latitude.value, longitude.value); latitude.value=''; longitude.value='';">Save This Data</button>
 </form>
 
 <div *ngIf="latAndLng">
   <h3>Your results</h3>
   <p>Latitude: {{lat}}, Longitude: {{lng}}</p>
-  <!-- <button (click)="saveGeocachedLocation({{lat}}, {{lng}})">Save This Data</button> -->
 </div>
 <div *ngIf="address">
   <h3>Your results</h3>
   <p>Full Address: {{formattedAddress}}</p>
-  <!-- <button (click)="saveGeocachedLocation({{formattedAddress}})">Save This Data</button> -->
 </div>

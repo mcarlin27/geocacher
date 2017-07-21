@@ -30,6 +30,7 @@ export class HomepageComponent implements AfterViewInit {
   formattedAddress;
 
   beginGeocoding(locationToGeocode) {
+    this.address = null;
     this.geocodeService.geocodeAddress(locationToGeocode).subscribe((data) => {
       this.latAndLng = data.json().results[0].geometry.location;
     console.log(this.latAndLng);
@@ -47,6 +48,7 @@ export class HomepageComponent implements AfterViewInit {
   }
 
   beginReverseGeocoding(latitude, longitude) {
+    this.latAndLng = null;
     this.geocodeService.reverseGeocodeAddress(latitude, longitude).subscribe((data) => {
       this.address = data.json().results[0];
       console.log(this.address);
@@ -58,8 +60,16 @@ export class HomepageComponent implements AfterViewInit {
     })
   }
 
-  saveGeocachedLocation(latitude, longitude, address){
-    let addressToSave = new Address(latitude, longitude, address);
+  saveGeocachedLocation(address){
+    let addressToSave = new Address(this.lat, this.lng, address);
+    console.log(this.lat);
+    console.log(this.lng);
+    this.saveService.addAddress(addressToSave);
+  }
+
+  saveReverseGeocachedLocation(latitude, longitude) {
+    let addressToSave = new Address(latitude, longitude, this.formattedAddress);
+    console.log(this.formattedAddress);
     this.saveService.addAddress(addressToSave);
   }
 }

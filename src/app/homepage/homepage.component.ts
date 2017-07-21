@@ -1,17 +1,22 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { MapService } from '../map.service';
 import { GeocodeService } from '../geocode.service';
+import { SaveService } from '../save.service';
+import { Address } from '../latlng.model';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.sass'],
-  providers: [MapService, GeocodeService]
+  providers: [MapService,
+              GeocodeService,
+              SaveService]
 })
 export class HomepageComponent implements AfterViewInit {
 
   constructor(private mapService: MapService,
-              private geocodeService: GeocodeService) { }
+              private geocodeService: GeocodeService,
+              private saveService: SaveService) { }
 
   ngAfterViewInit() {
     console.log('hello');
@@ -51,5 +56,10 @@ export class HomepageComponent implements AfterViewInit {
         }
       }
     })
+  }
+
+  saveGeocachedLocation(latitude, longitude, address){
+    let addressToSave = new Address(latitude, longitude, address);
+    this.saveService.addAddress(addressToSave);
   }
 }

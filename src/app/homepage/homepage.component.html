@@ -20,8 +20,10 @@
 <div *ngIf="latAndLng">
   <h3>Your results</h3>
   <p>Latitude: {{lat}}, Longitude: {{lng}}</p>
+  <!-- <button (click)="saveGeocachedLocation({{lat}}, {{lng}})">Save This Data</button> -->
 </div>
 <div *ngIf="address">
   <h3>Your results</h3>
   <p>Full Address: {{formattedAddress}}</p>
+  <!-- <button (click)="saveGeocachedLocation({{formattedAddress}})">Save This Data</button> -->
 </div>

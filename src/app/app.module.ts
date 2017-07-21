@@ -7,6 +7,16 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { routing } from './app.routing';
 import { AgmCoreModule } from '@agm/core';
 import { geoKey } from './api-keys';
+import { masterFirebaseConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 
 @NgModule({
   declarations: [
@@ -20,7 +30,9 @@ import { geoKey } from './api-keys';
     routing,
     AgmCoreModule.forRoot({
       apiKey: geoKey
-    })
+    }),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

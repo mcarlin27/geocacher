@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'The Great GeocachIng Group: Great Geocache Geolocator';
+  title = 'The Great Geocaching Group: Great Geocache Geolocator';
 }

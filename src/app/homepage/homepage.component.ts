@@ -21,6 +21,8 @@ export class HomepageComponent implements AfterViewInit {
   latAndLng: any = null;
   lat;
   lng;
+  address;
+  formattedAddress;
 
   beginGeocoding(locationToGeocode) {
     this.geocodeService.geocodeAddress(locationToGeocode).subscribe((data) => {
@@ -37,5 +39,17 @@ export class HomepageComponent implements AfterViewInit {
       }
     }
     });
+  }
+
+  beginReverseGeocoding(latitude, longitude) {
+    this.geocodeService.reverseGeocodeAddress(latitude, longitude).subscribe((data) => {
+      this.address = data.json().results[0];
+      console.log(this.address);
+      for (var formatted_address in this.address) {
+        if (this.address.hasOwnProperty(formatted_address)) {
+          this.formattedAddress = this.address.formatted_address;
+        }
+      }
+    })
   }
 }

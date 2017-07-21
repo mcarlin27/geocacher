@@ -21,3 +21,7 @@
   <h3>Your results</h3>
   <p>Latitude: {{lat}}, Longitude: {{lng}}</p>
 </div>
+<div *ngIf="address">
+  <h3>Your results</h3>
+  <p>Full Address: {{formattedAddress}}</p>
+</div>

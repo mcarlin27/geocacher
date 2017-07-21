@@ -13,5 +13,10 @@ export class GeocodeService {
   geocodeAddress(fullAddress: string) {
     this.results = this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${geoKey}&address=${fullAddress}`);
     return this.results;
-    };
-  }
+  };
+
+  reverseGeocodeAddress(latitude: string, longitude: string) {
+    this.results = this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${geoKey}&latlng=${latitude},${longitude}`);
+    return this.results;
+  };
+}

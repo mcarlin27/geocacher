@@ -1,0 +1,6 @@
+<div *ngFor="let address of addresses | async">
+  <h3>Address</h3>
+  <h4>latitude: {{address.latitude}}, Longitude: {{address.longitude}}</h4>
+  <h4>Full Address: {{address.address}}</h4>
+  <button (click)="beginDeletingAddress(address)">Delete This Listing</button>
+</div>
